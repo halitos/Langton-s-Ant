@@ -1,6 +1,4 @@
-// import { unref } from "vue";
-
-export const goAnt = () => {
+export const quantumania = () => {
   let x = 4;
   let y = 4;
   let direction = 1;

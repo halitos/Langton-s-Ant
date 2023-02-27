@@ -3,28 +3,28 @@
     <div>
       <h1>Qu<span>ant</span>u<span>man</span>ia</h1>
       <div class="btn-group">
-        <button @click="goAnt">Move</button>
+        <button @click="quantumania">Start</button>
       </div>
-      <div id="tiles">
+      <div id="cols">
         <div
-          v-for="tiles in grids"
+          v-for="cols in grids"
           :ref="
             (el) => {
-              grids[tiles] = el;
+              grids[cols] = el;
             }
           "
-          :key="tiles"
+          :key="cols"
         >
           <div
-            v-for="tile in tiles"
-            class="tile"
+            v-for="rows in cols"
+            class="rows"
             :ref="
               (el) => {
-                tiles[tile] = el;
+                cols[rows] = el;
               }
             "
-            :id="tile"
-            :key="tile"
+            :id="rows"
+            :key="rows"
           >
             <img class="d-none" src="./assets/222.png" alt="Ant image" />
           </div>
@@ -47,7 +47,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { goAnt } from "./composables/quantumania";
+import { quantumania } from "./composables/quantumania";
 import { ant } from "./composables/ant";
 
 const grids = ref([]);
@@ -66,7 +66,6 @@ const makeGridArray = (cols, rows) => {
 grids.value = makeGridArray(10, 10);
 
 onMounted(() => {
-  // goAnt();
   ant();
 });
 </script>
@@ -94,7 +93,7 @@ h1 {
     #fff800 100%
   );
   padding: 2rem;
-  margin-bottom: 0;
+  margin: 0;
   font-size: 2rem;
 }
 
@@ -105,7 +104,7 @@ span {
 
 .btn-group {
   display: flex;
-  justify-content: start;
+  justify-content: end;
   padding: 2rem;
 }
 
@@ -126,8 +125,8 @@ span {
 }
 
 #content {
-  width: 400px;
-  margin-top: 2rem;
+  width: 25%;
+  margin: 2rem;
 }
 
 #grid-canvas {
@@ -136,13 +135,12 @@ span {
   background: white;
 }
 
-#tiles {
+#cols {
   margin: 0;
   padding: 0%;
   display: grid;
   grid-template-columns: repeat(10, 80px);
   grid-template-rows: repeat(10, 80px);
-  /* margin-top: 2rem; */
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 
@@ -164,7 +162,7 @@ img {
   display: none;
 }
 
-.tile {
+.rows {
   width: 80px;
   height: 80px;
   outline: 1px solid #000;
