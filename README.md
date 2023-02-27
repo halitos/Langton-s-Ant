@@ -8,10 +8,12 @@ Langton's Ant is a cellular automaton that moves around a two-dimensional grid o
 
 Deployed to Vercel: https://langton-s-ant.vercel.app/
 
-- The canvas solution works per pixel.
+**Start** button activates Antman and he moves to next tile every **2 seconds**
+
+- The canvas solution works per pixel.<br>
   The ant moves in 2D array grid, with x-y coordinates and invert each pixel's fillStyle.
 
-- The Antman solution made with Vue JS
+- The Antman solution made with Vue JS.<br>
   Similar 2D array used to create grids with id names of 'x,y'
   Antman moves based on toggled classes
 
