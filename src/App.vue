@@ -1,28 +1,33 @@
 <template>
   <main id="container">
-    <h1>Qu<span>ant</span>u<span>man</span>ia</h1>
-    <div id="tiles">
-      <div
-        v-for="tiles in grids"
-        :ref="
-          (el) => {
-            grids[tiles] = el;
-          }
-        "
-        :key="tiles"
-      >
+    <div>
+      <h1>Qu<span>ant</span>u<span>man</span>ia</h1>
+      <div class="btn-group">
+        <button @click="goAnt">Move</button>
+      </div>
+      <div id="tiles">
         <div
-          v-for="tile in tiles"
-          class="tile"
+          v-for="tiles in grids"
           :ref="
             (el) => {
-              tiles[tile] = el;
+              grids[tiles] = el;
             }
           "
-          :id="tile"
-          :key="tile"
+          :key="tiles"
         >
-          <img class="d-none" src="./assets/222.png" alt="Ant image" />
+          <div
+            v-for="tile in tiles"
+            class="tile"
+            :ref="
+              (el) => {
+                tiles[tile] = el;
+              }
+            "
+            :id="tile"
+            :key="tile"
+          >
+            <img class="d-none" src="./assets/222.png" alt="Ant image" />
+          </div>
         </div>
       </div>
     </div>
@@ -61,7 +66,7 @@ const makeGridArray = (cols, rows) => {
 grids.value = makeGridArray(10, 10);
 
 onMounted(() => {
-  goAnt();
+  // goAnt();
   ant();
 });
 </script>
@@ -98,12 +103,25 @@ span {
   font-size: xx-large;
 }
 
+.btn-group {
+  display: flex;
+  justify-content: start;
+  padding: 2rem;
+}
+
+.btn-group > button {
+  padding: 0.4rem 0.8rem;
+  font-size: large;
+  border: rgb(204, 118, 12) 2px solid;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
 #container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 1rem;
-  height: auto;
   height: 100%;
 }
 
@@ -122,9 +140,9 @@ span {
   margin: 0;
   padding: 0%;
   display: grid;
-  grid-template-columns: repeat(10, 50px);
-  grid-template-rows: repeat(10, 50px);
-  margin-top: 2rem;
+  grid-template-columns: repeat(10, 80px);
+  grid-template-rows: repeat(10, 80px);
+  /* margin-top: 2rem; */
   background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 
@@ -139,7 +157,7 @@ span {
 }
 
 img {
-  width: 20px;
+  width: 25px;
 }
 
 .d-none {
@@ -147,8 +165,8 @@ img {
 }
 
 .tile {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   outline: 1px solid #000;
   display: flex;
   align-items: center;

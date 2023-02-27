@@ -1,10 +1,10 @@
-import { unref } from "vue";
+// import { unref } from "vue";
 
 export const goAnt = () => {
   let x = 4;
   let y = 4;
   let direction = 1;
-  let pos = unref("4,4");
+  let pos = "4,4";
 
   const move = () => {
     setPosition(pos);
@@ -12,7 +12,7 @@ export const goAnt = () => {
     setTimeout(() => {
       setNextPos();
       move();
-    }, 200);
+    }, 2000);
   };
 
   const setPosition = (pos) => {
