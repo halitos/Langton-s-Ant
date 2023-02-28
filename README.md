@@ -8,7 +8,10 @@ Langton's Ant is a cellular automaton that moves around a two-dimensional grid o
 
 Deployed to Vercel: https://langton-s-ant.vercel.app/
 
-**Start** button activates Antman and he moves to next tile every **2 seconds**
+**Start** button activates Antman and he moves to next tile every **2 seconds** :ant: :ant:
+
+:heavy_exclamation_mark: The grid won't expand when Antman tries to move out of the scope.<br>
+He will be sucked to quantum realm instead and teleport to other side of the grid. :grin:
 
 - The canvas solution works per pixel.<br>
   The ant moves in 2D array grid, with x-y coordinates and invert each pixel's fillStyle.
